@@ -63,8 +63,8 @@ def check_for_account(username, password): # Checks if the account name already 
         sqlite_connection = sqlite3.connect('Database.db')
         cursor = sqlite_connection.cursor()
 
-        sqlite_check_login = f"""SELECT username from users WHERE username='{username}';"""
-        cursor.execute(sqlite_check_login)
+        sqlite_check_account = f"""SELECT username from users WHERE username='{username}';"""
+        cursor.execute(sqlite_check_account)
         if not cursor.fetchone():
             create_account(username, password)
         else:
